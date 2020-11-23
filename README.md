@@ -1,15 +1,45 @@
 [![Actions Status](https://github.com/itggot-TE4/TE4/workflows/tests/badge.svg)](https://github.com/itggot-TE4/Yala/actions)
-# TE4
-Template project for projects at TE4. 
 
-Replace this with a description for the project. Remember to update the above template badge.
+# Iron-Criminals Log-O-Matic
 
-## Project management setup
-- Use projects tab for adding kanban boards for issue tracking and bug triage board.
-- Use issues and labels for assigning points to tasks and categorizing tasks.
+This is a small Vue based project aimed at simplifying the task of reviewing students daily journals.
+
+## Project setup
+
+```text
+npm install
+```
+
+### Compiles and hot-reloads for development
+
+```text
+npm run serve
+```
+
+### Compiles and minifies for production
+
+```text
+npm run build
+```
+
+### Run your unit tests
+
+```text
+npm run test:unit
+```
+
+### Lints and fixes files
+
+```text
+npm run lint
+```
 
 ## Code review
-Code review is the process that happens after a new pull request is created and before the changes are merged to develop. It's a powerful tool for knowledge transfer. Use the following guidelines as a reference: https://github.com/thoughtbot/guides/tree/master/code-review
+
+This project utilizes Code Reviews to hopefully prevent some bugs from being merged into the `dev` and `master` branch.
+Before a pull request is merged the code needs to be review by atleast one member of the Iron-Criminals team. But what is a code review and how is it performed?
+
+Code review is the process that happens after a new pull request is created and before the changes are merged to `dev`. It's a powerful tool for knowledge transfer. Use the following guidelines as a reference: https://github.com/thoughtbot/guides/tree/master/code-review
 
 ## Documentation
 Self-documenting code is something to aim for. Types are the simplest and best documentation, improve legibility due to their well-defined meaning, and are checked at compile time<sup>1</sup>. For more high-level documentation about application code, one can choose to use tools such as [JSDoc](https://jsdoc.app/) or [docsify.js](https://docsify.js.org). Use the gh-pages to provide this documentation for other developers and users: https://itggot-te4.github.io/TE4/
