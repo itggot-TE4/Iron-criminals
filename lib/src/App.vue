@@ -14,10 +14,6 @@ export default Vue.extend({
 
   components: {
     Header
-  },
-
-  data: () => ({
-    //
-  })
+  }
 });
 </script>
