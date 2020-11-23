@@ -49,7 +49,7 @@ Code review is the process that happens after a new pull request is created and 
 
 ### Documentation
 
-Self-documenting code is something to aim for. Types are the simplest and best documentation, improve legibility due to their well-defined meaning, and are checked at compile time<sup>1</sup>. We prefer complex code to be documentet inline to help other undrestand it. For documentation not suited for inlining the documentation should be wriiten in a markdown file in the `docs` folder. This makes it available on our GitHub pages: <https://itggot-TE4.github.io/Iron-crimals/index.html>
+Self-documenting code is something to aim for. Types are the simplest and best documentation, improve legibility due to their well-defined meaning, and are checked at compile time<sup>1</sup>. We prefer complex code to be documentet inline to help other undrestand it. For documentation not suited for inlining the documentation should be wriiten in a markdown file in the `docs` folder and linked to in the `_navbar.md` file. This makes it available on our GitHub pages: <https://itggot-TE4.github.io/Iron-crimals/index.html>
 
 ### Testing
 
