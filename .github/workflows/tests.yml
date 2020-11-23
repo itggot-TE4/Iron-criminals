@@ -1,12 +1,8 @@
 name: tests
-
 on: [push]
-
 jobs:
   unit-tests:
-
     runs-on: ubuntu-latest
-    
     steps:
     - uses: actions/checkout@v1
     - name: Run all unit tests
@@ -15,14 +11,12 @@ jobs:
         # npm install
         # npm run test
   lint:
-
     runs-on: ubuntu-latest
-    
     steps:
     - uses: actions/checkout@v1
     - name: Check for linting
+      working-directory: ./lib
       run: |
-        echo Run lint
-        # npm install
-        # npm run lint
+        npm install
+        npm run lint
 
