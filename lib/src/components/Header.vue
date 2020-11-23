@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar absolute>
+  <v-app-bar app>
     <v-toolbar-title>Log-O-Matic</v-toolbar-title>
 
     <v-spacer></v-spacer>
