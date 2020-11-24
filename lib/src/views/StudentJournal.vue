@@ -1,21 +1,16 @@
 <template>
-    <v-container class="mt-2">
-        <v-card 
-            class="mx-auto"
-            max-width="350"
-            max-height="120"
-        >
-            <v-card-text class="d-flex align-center flex-column pa-0">
-                <h3 class="ma-0 mt-1 font-weight-black">Week</h3>
-                <h3 class="ma-0 font-weight-black">namn namnsson</h3>
-            </v-card-text>
-            <v-container class="d-flex justify-center">
-                <v-icon size="35">mdi-chevron-left</v-icon>
-                <p class="ma-0 mt-1">Veckodag</p>
-                <v-icon size="35">mdi-chevron-right</v-icon>
-            </v-container>
-        </v-card>
-
+  <v-container class="mt-2">
+    <v-card class="mx-auto" max-width="350" max-height="120">
+      <v-card-text class="d-flex align-center flex-column pa-0">
+        <h3 class="ma-0 mt-1 font-weight-black">Week</h3>
+        <h3 class="ma-0 font-weight-black">namn namnsson</h3>
+      </v-card-text>
+      <v-container class="d-flex justify-center">
+        <v-icon size="35">mdi-chevron-left</v-icon>
+        <p class="ma-0 mt-1">Veckodag</p>
+        <v-icon size="35">mdi-chevron-right</v-icon>
+      </v-container>
+    </v-card>
 
     <v-card class="mx-auto mt-10 flex-column" max-width="1500">
       <v-container>
