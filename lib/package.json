@@ -8,7 +8,7 @@
     "test:unit": "vue-cli-service test:unit",
     "test": "npm run test:unit",
     "lint": "vue-cli-service lint",
-    "postinstall": "cd .. && husky install ./lib"
+    "postinstall": "cd .. && npx husky install ./lib"
   },
   "dependencies": {
     "core-js": "^3.6.5",
