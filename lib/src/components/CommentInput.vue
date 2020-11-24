@@ -2,11 +2,11 @@
   <div>
     <v-col cols="12">
       <v-textarea filled color="teal">
-          <template v-slot:label>
+        <template v-slot:label>
           <div>
-              Comment
+            Comment
           </div>
-          </template>
+        </template>
       </v-textarea>
     </v-col>
     <div class="d-flex justify-end">
@@ -32,5 +32,4 @@ import Vue from "vue";
 export default Vue.extend({
   props: ["logID"]
 });
-
 </script>

@@ -42,7 +42,7 @@ export default Vue.extend({});
 </script>
 
 <style lang="scss" scoped>
-  a {
-    text-decoration: none;
-  }
+a {
+  text-decoration: none;
+}
 </style>
