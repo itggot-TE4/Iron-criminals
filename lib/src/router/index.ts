@@ -22,7 +22,16 @@ const routes: Array<RouteConfig> = [
   {
     path: "/journal",
     name: "Journal",
-    component: () => import("../views/StudentJournal.vue")
+
+    component: () =>
+      import("../views/StudentJournal.vue")
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: () =>
+      import("../views/Login.vue")
+
   }
 ];
 
