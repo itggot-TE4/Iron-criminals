@@ -26,6 +26,12 @@ const routes: Array<RouteConfig> = [
     component: () =>
       import("../views/StudentJournal.vue")
   },
+  {
+    path: "/login",
+    name: "Login",
+    component: () =>
+      import("../views/Login.vue")
+  }
 ];
 
 const router = new VueRouter({

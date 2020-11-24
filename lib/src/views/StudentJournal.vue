@@ -57,16 +57,9 @@
             <div class="d-flex justify-end">
                 <v-btn
                     class="ma-2"
-                    :loading="loading2"
-                    :disabled="loading2"
                     color="success"
-                    @click="loader = 'loading2'"
-                    
                 >
                 Send Comment
-                <template v-slot:loader>
-                    <span>Loading...</span>
-                </template>
                 </v-btn>
                 </div>
 
