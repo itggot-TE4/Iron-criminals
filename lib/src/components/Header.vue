@@ -24,7 +24,6 @@
       </v-icon>
       SIGN IN
     </v-btn>
-
   </v-app-bar>
 </template>
 
