@@ -35,37 +35,16 @@
       <v-divider></v-divider>
       <p class="ml-2">Comments</p>
       <Timeline :comments="[{ body: 'hej', author: 'läraren' }]" />
-      <v-col cols="12">
-        <v-textarea filled color="teal">
-          <template v-slot:label>
-            <div>
-              Comment
-            </div>
-          </template>
-        </v-textarea>
-      </v-col>
-      <div class="d-flex justify-end">
-        <v-btn
-          class="ma-2"
-          :loading="loading2"
-          :disabled="loading2"
-          color="success"
-          @click="loader = 'loading2'"
-        >
-          Send Comment
-          <template v-slot:loader>
-            <span>Loading...</span>
-          </template>
-        </v-btn>
-      </div>
+      <CommentInput />
     </v-card>
   </v-container>
 </template>
 
 <script lang="ts">
 import Timeline from "@/components/Timeline.vue";
+import CommentInput from "@/components/CommentInput.vue";
 export default {
   name: "Journal",
-  components: { Timeline }
+  components: { Timeline, CommentInput }
 };
 </script>
