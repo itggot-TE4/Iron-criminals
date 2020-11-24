@@ -1,6 +1,5 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
-import { component } from 'vue/types/umd';
 import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
@@ -23,6 +22,7 @@ const routes: Array<RouteConfig> = [
   {
     path: "/journal",
     name: "Journal",
+
     component: () =>
       import("../views/StudentJournal.vue")
   },
@@ -31,6 +31,7 @@ const routes: Array<RouteConfig> = [
     name: "Login",
     component: () =>
       import("../views/Login.vue")
+
   }
 ];
 
