@@ -1,10 +1,6 @@
 <template>
   <v-timeline>
-    <v-timeline-item
-      v-for="comment in comments"
-      :key="comment"
-      large
-    >
+    <v-timeline-item v-for="comment in comments" :key="comment" large>
       <template v-slot:icon>
         <v-avatar>
           <v-icon>mdi-account</v-icon>
@@ -23,5 +19,5 @@
 <script>
 export default {
   props: ["comments"]
-}
+};
 </script>
