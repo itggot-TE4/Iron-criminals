@@ -81,6 +81,9 @@ export default {
     users: (state: any) => {
       return state.users;
     },
+    user: (state: any) => (userID: number) => {
+      return state.users.find((user: User) => user.id === userID);
+    },
     teachers: (state: any) => {
       return state.users.filter((x: User) => {
         x.type === "teacher";
