@@ -184,7 +184,7 @@ export default {
     }
   },
   getters: {
-    journals: (state: any) => (yearWeek: number) => {
+    journals: (state: any) => (yearWeek: string) => {
       return state.journals[yearWeek].map((x: Journal) => {
         return dateify(x);
       });

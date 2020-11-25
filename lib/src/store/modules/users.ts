@@ -65,7 +65,7 @@ export default {
     }
   },
   getters: {
-    journals: (_state: any) => (userID: number, yearWeek: number) => {
+    journals: (_state: any) => (userID: number, yearWeek: string) => {
       const data: Journal[] = store.getters["journals/journals"](
         yearWeek
       ).filter((x: Journal) => x.student === userID);
