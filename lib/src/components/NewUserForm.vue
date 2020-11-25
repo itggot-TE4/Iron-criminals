@@ -48,7 +48,7 @@ export default Vue.extend({
       rules: {
         required: (value: any) => !!value || "Required",
         email: (value: any) => {
-          const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{1,}))$/;
           return pattern.test(value) || "Invalid e-mail";
         }
       }
@@ -65,13 +65,22 @@ export default Vue.extend({
       const teacher = store.getters["users/teachers"].find(
         (x: any) => x.name == this.teacher
       );
-      store.dispatch("users/newUser", {
-        name: this.name,
-        type: this.type,
-        email: this.email,
-        password: this.pwd,
-        assignedTeacher: teacher.id
-      });
+      if(this.type === "student") {
+        store.dispatch("users/newUser", {
+          name: this.name,
+          type: this.type,
+          email: this.email,
+          password: this.pwd,
+          assignedTeacher: teacher.id
+        });
+      } else {
+        store.dispatch("users/newUser", {
+          name: this.name,
+          type: this.type,
+          email: this.email,
+          password: this.pwd
+        });
+      }
     }
   }
 });

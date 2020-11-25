@@ -11,7 +11,7 @@
         <v-select
           v-bind:select="item.teacher"
           :items="teachers"
-          v-bind:value="item.teacher"
+          v-bind:value="getNameFromID(item.assignedTeacher)"
         ></v-select>
       </template>
 
@@ -52,12 +52,22 @@ export default {
   //     ]
   //   };
   // },
+
   computed: {
     teachers: function() {
       return store.getters["users/teachers"].map((x: any) => x.name);
     },
     items: function() {
       return store.getters[`users/${this.type}s`];
+    }
+  },
+
+  methods: {
+    getNameFromID: function(id) {
+      const result = store.getters["users/teachers"].find(obj => {
+        return obj.id === id
+      })
+      return result.name
     }
   }
 };
