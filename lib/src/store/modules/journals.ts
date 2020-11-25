@@ -4,32 +4,6 @@ import store from "@/store/index";
 
 Vue.use(Vuex);
 
-interface Journal {
-  comments: Comment[];
-  id: number;
-  student: number;
-  date: Date;
-}
-interface Comment {
-  id: number;
-  body: string;
-  author: number;
-  timestamp: Date;
-}
-interface AddComment {
-  logID: number;
-  comment: string;
-}
-interface RemoveComment {
-  logID: number;
-  commentID: number;
-}
-interface CreateComment {
-  logID: number;
-  body: string;
-  author: number;
-}
-
 function dateify(object: Journal) {
   if (typeof object.date == "string") {
     object.date = new Date(object.date);
@@ -145,12 +119,12 @@ export default {
     },
     createComment(state: any, args: CreateComment) {
       const comments = store.getters.journal(args.logID).comments as Comment[];
-      const comment: Comment = {
+      const comment = {
         id: comments[comments.length - 1].id + 1,
         body: args.body,
         author: args.author,
         timestamp: new Date()
-      };
+      } as Comment;
       state.dispatch("addComment", comment);
     },
     createDefaultJournals(store: any, studentId: number) {
@@ -176,7 +150,12 @@ export default {
           student: studentId,
           date: date,
           comments: [
-            { author: 1, body: "Some content", id: 1, timestamp: new Date() }
+            {
+              author: 1,
+              body: "Some content",
+              id: 1,
+              timestamp: new Date()
+            } as Comment
           ]
         };
         store.commit("addJournal", entry);

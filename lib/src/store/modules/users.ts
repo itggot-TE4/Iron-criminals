@@ -4,34 +4,6 @@ import store from "@/store/index";
 
 Vue.use(Vuex);
 
-interface Journal {
-  comment: Comment;
-  id: number;
-  student: number;
-  date: Date;
-}
-interface User {
-  id: number;
-  name: string;
-  type: string;
-  email: string;
-  password: string;
-  assignedTeacher: number;
-}
-
-interface Journal {
-  comment: Comment;
-  id: number;
-  student: number;
-  date: Date;
-}
-interface Comment {
-  id: number;
-  body: string;
-  author: number;
-  timestamp: Date;
-}
-
 export default {
   namespaced: true,
   state: {
@@ -42,15 +14,15 @@ export default {
         type: "teacher",
         email: "example@example.example",
         password: "securepassword101"
+      },
+      {
+        id: 2,
+        name: "Daniel Danielson",
+        type: "student",
+        email: "example@example.example",
+        password: "securepassword101",
+        assignedTeacher: 1
       }
-      // {
-      //   id: 2,
-      //   name: "Daniel Danielson",
-      //   type: "student",
-      //   email: "example@example.example",
-      //   password: "securepassword101",
-      //   assignedTeacher: 1
-      // }
     ]
   },
   mutations: {

@@ -4,15 +4,6 @@ import store from "@/store/index";
 
 Vue.use(Vuex);
 
-interface User {
-  id: number;
-  name: string;
-  type: string;
-  email: string;
-  password: string;
-  assignedTeacher: number;
-}
-
 export default {
   namespaced: true,
   state: {
