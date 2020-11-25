@@ -15,7 +15,7 @@
           `/logs/weeks/${yearWeek}?day=monday&student=${item.thursday.student}`
         "
       >
-        <UserOverViewBadge :item="item.monday" badgeContent="99" />
+        <JournalOverViewBadge :item="item.monday" badgeContent="99" />
       </router-link>
     </template>
     <template v-slot:[`item.tuesday.status`]="{ item }">
@@ -24,7 +24,7 @@
           `/logs/weeks/${yearWeek}?day=tuesday&student=${item.thursday.student}`
         "
       >
-        <UserOverViewBadge :item="item.tuesday" badgeContent="99" />
+        <JournalOverViewBadge :item="item.tuesday" badgeContent="99" />
       </router-link>
     </template>
     <template v-slot:[`item.wednesday.status`]="{ item }">
@@ -33,7 +33,7 @@
           `/logs/weeks/${yearWeek}?day=wednesday&student=${item.thursday.student}`
         "
       >
-        <UserOverViewBadge :item="item.wednesday" badgeContent="99" />
+        <JournalOverViewBadge :item="item.wednesday" badgeContent="99" />
       </router-link>
     </template>
     <template v-slot:[`item.thursday.status`]="{ item }">
@@ -42,7 +42,7 @@
           `/logs/weeks/${yearWeek}?day=thursday&student=${item.thursday.student}`
         "
       >
-        <UserOverViewBadge :item="item.thursday" badgeContent="99" />
+        <JournalOverViewBadge :item="item.thursday" badgeContent="99" />
       </router-link>
     </template>
     <template v-slot:[`item.friday.status`]="{ item }">
@@ -51,7 +51,7 @@
           `/logs/weeks/${yearWeek}?day=friday&student=${item.thursday.student}`
         "
       >
-        <UserOverViewBadge :item="item.friday" badgeContent="2" />
+        <JournalOverViewBadge :item="item.friday" badgeContent="2" />
       </router-link>
     </template>
   </v-data-table>
@@ -59,11 +59,11 @@
 
 <script lang="ts">
 import store from "../store/index";
-import UserOverViewBadge from "@/components/UserOverviewBadge.vue";
+import JournalOverViewBadge from "@/components/JournalOverviewBadge.vue";
 
 export default {
   components: {
-    UserOverViewBadge
+    JournalOverViewBadge
   },
   props: {
     yearWeek: { default: "2020-48" }
