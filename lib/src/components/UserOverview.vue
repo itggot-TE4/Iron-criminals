@@ -10,31 +10,63 @@
     </template>
 
     <template v-slot:[`item.monday.status`]="{ item }">
-      <UserOverViewBadge :item="item" badgeContent="99" />
+      <router-link
+        :to="
+          `/logs/weeks/${yearWeek}?day=monday&student=${item.thursday.student}`
+        "
+      >
+        <UserOverViewBadge :item="item.monday" badgeContent="99" />
+      </router-link>
     </template>
     <template v-slot:[`item.tuesday.status`]="{ item }">
-      <UserOverViewBadge :item="item" badgeContent="99" />
+      <router-link
+        :to="
+          `/logs/weeks/${yearWeek}?day=tuesday&student=${item.thursday.student}`
+        "
+      >
+        <UserOverViewBadge :item="item.tuesday" badgeContent="99" />
+      </router-link>
     </template>
     <template v-slot:[`item.wednesday.status`]="{ item }">
-      <UserOverViewBadge :item="item" badgeContent="99" />
+      <router-link
+        :to="
+          `/logs/weeks/${yearWeek}?day=wednesday&student=${item.thursday.student}`
+        "
+      >
+        <UserOverViewBadge :item="item.wednesday" badgeContent="99" />
+      </router-link>
     </template>
     <template v-slot:[`item.thursday.status`]="{ item }">
-      <UserOverViewBadge :item="item" badgeContent="99" />
+      <router-link
+        :to="
+          `/logs/weeks/${yearWeek}?day=thursday&student=${item.thursday.student}`
+        "
+      >
+        <UserOverViewBadge :item="item.thursday" badgeContent="99" />
+      </router-link>
     </template>
     <template v-slot:[`item.friday.status`]="{ item }">
-      <UserOverViewBadge :item="item" badgeContent="2" />
+      <router-link
+        :to="
+          `/logs/weeks/${yearWeek}?day=friday&student=${item.thursday.student}`
+        "
+      >
+        <UserOverViewBadge :item="item.friday" badgeContent="2" />
+      </router-link>
     </template>
   </v-data-table>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 import store from "../store/index";
 import UserOverViewBadge from "@/components/UserOverviewBadge.vue";
 
 export default {
   components: {
     UserOverViewBadge
+  },
+  props: {
+    yearWeek: { default: "2020-48" }
   },
   data() {
     return {
@@ -53,12 +85,16 @@ export default {
       const out: any = [];
       const users = store.getters["users/users"];
       users.forEach(element => {
-        const temp = store.getters["users/journals"](element.id);
-        Object.keys(temp).forEach((element: any) => {
+        const temp = store.getters["users/journals"](element.id, this.yearWeek);
+        Object.keys(temp).forEach((element: string) => {
           temp[element].status = "read";
-          temp[element].name = users.find(
-            x => x.id == temp[element].student
-          ).name;
+          try {
+            temp[element].name = users.find(
+              x => x.id == temp[element].student
+            ).name;
+          } catch {
+            temp[element].name = "Unknown";
+          }
         });
         out.push(temp);
       });
