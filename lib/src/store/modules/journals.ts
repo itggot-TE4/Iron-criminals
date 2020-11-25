@@ -74,7 +74,7 @@ function getWeekNumber(date: Date) {
   d.setUTCDate(d.getUTCDate() + 4 - dayNum);
   const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
   return Math.ceil((((d as any) - (yearStart as any)) / 86400000 + 1) / 7);
-};
+}
 
 export default {
   namespaced: true,
