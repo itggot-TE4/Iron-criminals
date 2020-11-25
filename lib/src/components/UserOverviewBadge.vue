@@ -1,8 +1,6 @@
 <template>
   <v-badge :content="badgeContent">
-    <v-icon :color="item.monday.status == 'read' ? 'blue' : 'grey'"
-      >mdi-check</v-icon
-    >
+    <v-icon :color="item.status == 'read' ? 'blue' : 'grey'">mdi-check</v-icon>
   </v-badge>
 </template>
 
