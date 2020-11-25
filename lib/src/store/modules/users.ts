@@ -55,13 +55,13 @@ export default {
   },
   mutations: {
     addUser(state: any, args: User) {
-      console.log(args)
-      state.state.users.push(args);
+      state.users.push(args);
     }
   },
   actions: {
     newUser(state: any, args: User) {
       args.id = state.state.users[state.state.users.length - 1].id + 1;
+      store.commit('users/addUser', args)
       store.dispatch("journals/createDefaultJournals", args.id);
     }
   },
