@@ -34,29 +34,31 @@
 <script lang="ts">
 import Vue from "vue";
 import NewUserForm from "@/components/NewUserForm.vue";
+import store from "@/store/index"
 
 export default {
   components: { NewUserForm },
 
   props: ["type", "headers"],
 
-  data() {
-    return {
-      teachers: ["Daniel Berg", "Linus Styrén", "Johan Kivi", "Freddan"],
-
-      items: [
-        {
-          email: "hehehe",
-          name: "hohoho",
-          teacher: "Freddan"
-        },
-        {
-          email: "hehehe",
-          name: "hohoho",
-          teacher: "Freddan"
-        }
-      ]
-    };
+  // data() {
+  //   return {
+  //     items: [
+  //       {
+  //         email: "hehehe",
+  //         name: "hohoho",
+  //         teacher: "Daniel Berg"
+  //       }
+  //     ]
+  //   };
+  // },
+  computed: {
+    teachers: function() {
+      return store.getters["users/teachers"].map((x : any) => x.name);
+    },
+    items: function() {
+      return store.getters[`users/${this.type}s`];
+    }
   }
 };
 </script>
