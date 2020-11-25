@@ -34,7 +34,7 @@
 <script lang="ts">
 import Vue from "vue";
 import NewUserForm from "@/components/NewUserForm.vue";
-import store from "@/store/index"
+import store from "../store/index";
 
 export default {
   components: { NewUserForm },
@@ -54,7 +54,7 @@ export default {
   // },
   computed: {
     teachers: function() {
-      return store.getters["users/teachers"].map((x : any) => x.name);
+      return store.getters["users/teachers"].map((x: any) => x.name);
     },
     items: function() {
       return store.getters[`users/${this.type}s`];

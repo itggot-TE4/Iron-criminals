@@ -40,10 +40,10 @@ export default Vue.extend({
 
   data() {
     return {
-      email: '',
-      name: '',
-      teacher: '',
-      pwd: '',
+      email: "",
+      name: "",
+      teacher: "",
+      pwd: "",
 
       rules: {
         required: (value: any) => !!value || "Required",
@@ -56,14 +56,22 @@ export default Vue.extend({
   },
   computed: {
     teachers: function() {
-      return store.getters["users/teachers"].map((x : any) => x.name);
+      return store.getters["users/teachers"].map((x: any) => x.name);
     }
   },
   methods: {
     createUser: function() {
-      console.log(this.teacher)
-      const teacher = store.getters["users/teachers"].find((x : any) => x.name == this.teacher)
-      store.dispatch("users/newUser", {name: this.name, type: this.type, email: this.email, password: this.pwd, assignedTeacher: teacher.id})
+      console.log(this.teacher);
+      const teacher = store.getters["users/teachers"].find(
+        (x: any) => x.name == this.teacher
+      );
+      store.dispatch("users/newUser", {
+        name: this.name,
+        type: this.type,
+        email: this.email,
+        password: this.pwd,
+        assignedTeacher: teacher.id
+      });
     }
   }
 });

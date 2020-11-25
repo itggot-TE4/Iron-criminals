@@ -61,7 +61,7 @@ export default {
   actions: {
     newUser(state: any, args: User) {
       args.id = state.state.users[state.state.users.length - 1].id + 1;
-      store.commit('users/addUser', args)
+      store.commit("users/addUser", args);
       store.dispatch("journals/createDefaultJournals", args.id);
     }
   },
