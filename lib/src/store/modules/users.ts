@@ -82,9 +82,7 @@ export default {
       return state.users;
     },
     teachers: (state: any) => {
-      return state.users.filter((x: User) => {
-        x.type === "teacher";
-      });
+      return state.users.filter((x: User) => x.type == "teacher" );
     },
     studentsBelogingTo: (state: any) => (teacherID: number) => {
       return state.users.filter((x: User) => {
