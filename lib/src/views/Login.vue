@@ -7,13 +7,18 @@
         <v-row class="ml-2 mt-5">
           <v-icon>mdi-account-circle</v-icon>
           <v-col cols="12" sm="6" md="10 mt-1">
-            <v-text-field dense label="Email"> </v-text-field>
+            <v-text-field v-model="email" dense label="Email"> </v-text-field>
           </v-col>
         </v-row>
         <v-row class="ml-2">
           <v-icon>mdi-lock</v-icon>
           <v-col cols="12" sm="6" md="10 mt-1">
-            <v-text-field dense :type="type" label="Password"></v-text-field>
+            <v-text-field
+              v-model="password"
+              dense
+              :type="type"
+              label="Password"
+            ></v-text-field>
           </v-col>
           <v-icon @click="showPassword" v-if="type == 'password'"
             >mdi-eye-off</v-icon
@@ -24,7 +29,7 @@
 
       <v-divider></v-divider>
       <div class="d-flex justify-end">
-        <v-btn class="ma-2" color="success">
+        <v-btn class="ma-2" color="success" @click="onClick">
           Sign in
         </v-btn>
       </div>
@@ -32,11 +37,15 @@
   </v-container>
 </template>
 
-<script>
+<script lang="ts">
+import store from "../store/index";
+
 export default {
   data() {
     return {
-      type: "password"
+      type: "password",
+      email: "",
+      password: ""
     };
   },
   methods: {
@@ -46,6 +55,14 @@ export default {
       } else {
         this.type = "password";
       }
+    },
+    onClick() {
+      let userID = 1;
+      if (parseInt(this.email).toString() == this.email) {
+        userID = parseInt(this.email);
+      }
+      store.dispatch("auth/signIn", userID);
+      this.$router.push("journals");
     }
   }
 };

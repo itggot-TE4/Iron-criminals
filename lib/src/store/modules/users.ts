@@ -4,34 +4,6 @@ import store from "@/store/index";
 
 Vue.use(Vuex);
 
-interface Journal {
-  comment: Comment;
-  id: number;
-  student: number;
-  date: Date;
-}
-interface User {
-  id: number;
-  name: string;
-  type: string;
-  email: string;
-  password: string;
-  assignedTeacher: number;
-}
-
-interface Journal {
-  comment: Comment;
-  id: number;
-  student: number;
-  date: Date;
-}
-interface Comment {
-  id: number;
-  body: string;
-  author: number;
-  timestamp: Date;
-}
-
 export default {
   namespaced: true,
   state: {
@@ -81,6 +53,9 @@ export default {
     },
     users: (state: any) => {
       return state.users;
+    },
+    user: (state: any) => (userID: number) => {
+      return state.users.find((user: User) => user.id === userID);
     },
     teachers: (state: any) => {
       return state.users.filter((x: User) => x.type == "teacher");
