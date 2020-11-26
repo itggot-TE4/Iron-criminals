@@ -63,7 +63,7 @@ export default {
     this.question4 = this.journal.body.question4;
   },
   watch: {
-    nextDay: function(val: any) {
+    nextDay: function() {
       this.$nextTick(function() {
         this.question1 = this.journal.body.question1;
         this.question2 = this.journal.body.question2;

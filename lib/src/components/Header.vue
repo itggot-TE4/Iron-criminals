@@ -16,7 +16,7 @@
     </v-btn>
 
     <v-btn elevation="0">
-      <router-link to="journals" v-if="isSignedIn()">
+      <router-link :to="{ name: 'Journal Overview' }" v-if="isSignedIn()">
         <v-icon left>
           mdi-format-list-bulleted
         </v-icon>

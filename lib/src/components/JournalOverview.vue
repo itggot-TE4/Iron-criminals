@@ -6,7 +6,7 @@
     class="elevation-1"
   >
     <template v-slot:top>
-      <h1>Journals</h1>
+      <h1 class="pa-4">{{ title }}</h1>
     </template>
 
     <template v-slot:[`item.monday.status`]="{ item }">
@@ -56,7 +56,9 @@ export default {
     JournalOverViewBadge
   },
   props: {
-    yearWeek: { default: "2020-48" }
+    yearWeek: { default: "2020-48" },
+    filtered: { default: false },
+    title: {}
   },
   data() {
     return {
@@ -73,7 +75,16 @@ export default {
   computed: {
     rows: function() {
       const out: any = [];
-      const users = store.getters["users/students"];
+      let users: any[];
+      if (this.filtered) {
+        users = store.getters["users/studentsBelongingTo"](
+          store.getters["auth/auth"].id
+        );
+      } else {
+        users = store.getters["users/studentsNotBelongingTo"](
+          store.getters["auth/auth"].id
+        );
+      }
       users.forEach((element: any) => {
         const temp = store.getters["users/journals"](element.id, this.yearWeek);
         Object.keys(temp).forEach((element: string) => {
@@ -88,6 +99,7 @@ export default {
         });
         out.push(temp);
       });
+
       return out;
     }
   },

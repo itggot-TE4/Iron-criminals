@@ -1,6 +1,7 @@
 <template>
   <v-container>
-    <JournalOverview />
+    <JournalOverview :filtered="true" title="Your Students" class="mb-5" />
+    <JournalOverview title="All Other Students" />
   </v-container>
 </template>
 
