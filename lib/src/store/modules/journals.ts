@@ -116,13 +116,24 @@ export default {
           student: 2,
           date: new Date("2020-11-27"),
           body: {
-            question1: "Some answer",
+            question1: "Some Form of an answer",
             question2: "Some other answer",
             question3: "A third one",
-            question4: "A fourth one"
+            question4: "A fourth one or maybe a fifth"
           },
           comments: [
-            { author: 1, body: "Some content", id: 1, timestamp: new Date() }
+            {
+              author: 1,
+              body: "Some form om a comment or something else ",
+              id: 1,
+              timestamp: new Date()
+            },
+            {
+              author: 1,
+              body: "Some other form om a comment or something else ",
+              id: 2,
+              timestamp: new Date()
+            }
           ]
         }
       ]

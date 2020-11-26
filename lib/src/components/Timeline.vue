@@ -1,6 +1,6 @@
 <template>
   <v-timeline>
-    <v-timeline-item v-for="comment in comments" :key="comment" large>
+    <v-timeline-item v-for="comment in comments" :key="comment.id" large>
       <template v-slot:icon>
         <v-avatar>
           <v-icon>mdi-account</v-icon>
