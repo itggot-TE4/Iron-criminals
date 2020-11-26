@@ -7,7 +7,7 @@
         </v-avatar>
       </template>
       <template v-slot:opposite>
-        <span>{{ name(comment) }}</span>
+        <span>{{ name }}</span>
       </template>
       <v-card class="elevation-2">
         <v-card-text>{{ comment.body }}</v-card-text>
@@ -20,10 +20,10 @@
 import store from "../store/index";
 export default {
   props: ["comments"],
-  methods: {
-    name: function(comment) {
+  computed: {
+    name: function() {
       try {
-        return store.getters["users/user"](comment.author).name;
+        return store.getters["users/user"](this.comments.authors).name;
       } catch {
         return "Unknown";
       }
