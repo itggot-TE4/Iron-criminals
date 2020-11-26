@@ -3,7 +3,7 @@
     <h2 class="pa-4 text-capitalize">{{ type }}s</h2>
     <v-data-table
       :headers="headers"
-      :items="items"
+      :items="users"
       hide-default-footer
       class="elevation-1"
     >
@@ -11,7 +11,7 @@
         <v-select
           v-bind:select="item.teacher"
           :items="teachers"
-          v-bind:value="getNameFromID(item.assignedTeacher)"
+          v-bind:value="getTeacherNameFromID(item.assignedTeacher)"
         ></v-select>
       </template>
 
@@ -41,33 +41,21 @@ export default {
 
   props: ["type", "headers"],
 
-  // data() {
-  //   return {
-  //     items: [
-  //       {
-  //         email: "hehehe",
-  //         name: "hohoho",
-  //         teacher: "Daniel Berg"
-  //       }
-  //     ]
-  //   };
-  // },
-
   computed: {
     teachers: function() {
       return store.getters["users/teachers"].map((x: any) => x.name);
     },
-    items: function() {
+    users: function() {
       return store.getters[`users/${this.type}s`];
     }
   },
 
   methods: {
-    getNameFromID: function(id) {
-      const result = store.getters["users/teachers"].find(obj => {
-        return obj.id === id
-      })
-      return result.name
+    getTeacherNameFromID: function(id: any) {
+      const result = store.getters["users/teachers"].find((obj: any) => {
+        return obj.id === id;
+      });
+      return result.name;
     }
   }
 };
