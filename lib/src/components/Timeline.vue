@@ -25,7 +25,7 @@ export default {
       try {
         return store.getters["users/user"](this.comments.authors).name;
       } catch {
-        return "Unknown";
+        return "Unknown Author";
       }
     }
   }
