@@ -3,6 +3,14 @@ interface Journal {
   id: number;
   student: number;
   date: Date;
+  body: Body;
+}
+
+interface Body {
+  question1: string;
+  question2: string;
+  question3: string;
+  question4: string;
 }
 
 interface User {
