@@ -6,52 +6,31 @@
         <h3 class="ma-0 font-weight-black">{{ student.name }}</h3>
       </v-card-text>
       <v-container class="d-flex justify-center">
-        <v-icon size="35">mdi-chevron-left</v-icon>
+        <router-link
+          :to="`/journal/${week}/students/${this.$route.params.id}?${prevDay}`"
+        >
+          <v-icon size="35">mdi-chevron-left</v-icon>
+        </router-link>
         <p class="ma-0 mt-1">{{ Object.keys(this.$route.query)[0] }}</p>
-        <v-icon size="35">mdi-chevron-right</v-icon>
+        <router-link
+          :to="`/journal/${week}/students/${this.$route.params.id}?${nextDay}`"
+        >
+          <v-icon size="35">mdi-chevron-right</v-icon>
+        </router-link>
       </v-container>
     </v-card>
 
     <v-card class="mx-auto mt-10 flex-column" max-width="1500">
-      <v-container>
-        <p>Vad har du gjort under dagen?</p>
-        <v-text-field
-          flat
-          solo
-          placeholder="Answer here"
-          v-model="question1"
-        ></v-text-field>
-      </v-container>
-      <v-divider></v-divider>
-      <v-container>
-        <p>Vad har du lärt dig?</p>
-        <v-text-field
-          flat
-          solo
-          placeholder="Answer here"
-          v-model="question2"
-        ></v-text-field>
-      </v-container>
-      <v-divider></v-divider>
-      <v-container>
-        <p>Vad förstod du inte / Vilka frågor har du inte fått svar på?</p>
-        <v-text-field
-          flat
-          solo
-          placeholder="Answer here"
-          v-model="question3"
-        ></v-text-field>
-      </v-container>
-      <v-divider></v-divider>
-      <v-container>
-        <p>Vad vill du lära dig mer om?</p>
-        <v-text-field
-          flat
-          solo
-          placeholder="Answer here"
-          v-model="question4"
-        ></v-text-field>
-      </v-container>
+      <JournalBox question="Vad har du gjort idag?" :answer="question1" />
+      <v-divider />
+      <JournalBox question="Vad har du lärt dig?" :answer="question2" />
+      <v-divider />
+      <JournalBox
+        question="Vad förstod du inte / Vilka frågor har du inte fått svar på?"
+        :answer="question3"
+      />
+      <v-divider />
+      <JournalBox question="Vad vill du lära dig mer om?" :answer="question4" />
       <v-divider></v-divider>
       <p class="ml-2">Comments</p>
       <Timeline :comments="journal.comments" />
@@ -64,10 +43,11 @@
 import Timeline from "@/components/Timeline.vue";
 import CommentInput from "@/components/CommentInput.vue";
 import store from "../store/index";
+import JournalBox from "../components/JournalBox.vue";
 
 export default {
   name: "Journal",
-  components: { Timeline, CommentInput },
+  components: { Timeline, CommentInput, JournalBox },
   data() {
     return {
       question1: "",
@@ -82,9 +62,63 @@ export default {
     this.question3 = this.journal.body.question3;
     this.question4 = this.journal.body.question4;
   },
+  watch: {
+    nextDay: function(val: any) {
+      this.$nextTick(function() {
+        this.question1 = this.journal.body.question1;
+        this.question2 = this.journal.body.question2;
+        this.question3 = this.journal.body.question3;
+        this.question4 = this.journal.body.question4;
+      });
+    }
+  },
   computed: {
     week: function() {
       return this.$route.params.week;
+    },
+    nextDay: function() {
+      switch (Object.keys(this.$route.query)[0]) {
+        case "monday": {
+          return "tuesday";
+        }
+        case "tuesday": {
+          return "wednesday";
+        }
+        case "wednesday": {
+          return "thursday";
+        }
+        case "thursday": {
+          return "friday";
+        }
+        case "friday": {
+          return null;
+        }
+        default: {
+          return null;
+        }
+      }
+    },
+    prevDay: function() {
+      switch (Object.keys(this.$route.query)[0]) {
+        case "monday": {
+          return null;
+        }
+        case "tuesday": {
+          return "monday";
+        }
+        case "wednesday": {
+          return "tuesday";
+        }
+        case "thursday": {
+          return "wednesday";
+        }
+        case "friday": {
+          return "thursday";
+        }
+        default: {
+          return null;
+        }
+      }
     },
     journals: function() {
       return store.getters["users/journals"](
@@ -109,3 +143,9 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+a {
+  text-decoration: none;
+}
+</style>
