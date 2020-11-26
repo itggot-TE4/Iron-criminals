@@ -42,15 +42,15 @@ export default {
         type: "teacher",
         email: "example@example.example",
         password: "securepassword101"
+      },
+      {
+        id: 2,
+        name: "Daniel Danielson",
+        type: "student",
+        email: "example@example.example",
+        password: "securepassword101",
+        assignedTeacher: 1
       }
-      // {
-      //   id: 2,
-      //   name: "Daniel Danielson",
-      //   type: "student",
-      //   email: "example@example.example",
-      //   password: "securepassword101",
-      //   assignedTeacher: 1
-      // }
     ]
   },
   mutations: {
@@ -60,8 +60,9 @@ export default {
   },
   actions: {
     newUser(state: any, args: User) {
-      args.id = state.users[state.users.length - 1].id + 1;
-      store.dispatch("jorunals/");
+      args.id = state.state.users[state.state.users.length - 1].id + 1;
+      store.commit("users/addUser", args);
+      store.dispatch("journals/createDefaultJournals", args.id);
     }
   },
   getters: {
@@ -82,9 +83,10 @@ export default {
       return state.users;
     },
     teachers: (state: any) => {
-      return state.users.filter((x: User) => {
-        x.type === "teacher";
-      });
+      return state.users.filter((x: User) => x.type == "teacher");
+    },
+    students: (state: any) => {
+      return state.users.filter((x: User) => x.type == "student");
     },
     studentsBelogingTo: (state: any) => (teacherID: number) => {
       return state.users.filter((x: User) => {
