@@ -12,7 +12,7 @@
     <template v-slot:[`item.monday.status`]="{ item }">
       <router-link
         :to="
-          `/logs/weeks/${yearWeek}?day=monday&student=${item.thursday.student}`
+          `/journal/${yearWeek}/students/${item.thursday.student}?monday`
         "
       >
         <JournalOverViewBadge :item="item.monday" badgeContent="99" />
@@ -21,7 +21,7 @@
     <template v-slot:[`item.tuesday.status`]="{ item }">
       <router-link
         :to="
-          `/logs/weeks/${yearWeek}?day=tuesday&student=${item.thursday.student}`
+          `/journal/${yearWeek}/students/${item.thursday.student}?tuesday`
         "
       >
         <JournalOverViewBadge :item="item.tuesday" badgeContent="99" />
@@ -30,7 +30,7 @@
     <template v-slot:[`item.wednesday.status`]="{ item }">
       <router-link
         :to="
-          `/logs/weeks/${yearWeek}?day=wednesday&student=${item.thursday.student}`
+          `/journal/${yearWeek}/students/${item.thursday.student}?wednesday`
         "
       >
         <JournalOverViewBadge :item="item.wednesday" badgeContent="99" />
@@ -39,7 +39,7 @@
     <template v-slot:[`item.thursday.status`]="{ item }">
       <router-link
         :to="
-          `/logs/weeks/${yearWeek}?day=thursday&student=${item.thursday.student}`
+          `/journal/${yearWeek}/students/${item.thursday.student}?thursday`
         "
       >
         <JournalOverViewBadge :item="item.thursday" badgeContent="99" />
@@ -48,7 +48,7 @@
     <template v-slot:[`item.friday.status`]="{ item }">
       <router-link
         :to="
-          `/logs/weeks/${yearWeek}?day=friday&student=${item.thursday.student}`
+          `/journal/${yearWeek}/students/${item.thursday.student}?friday`
         "
       >
         <JournalOverViewBadge :item="item.friday" badgeContent="2" />
@@ -83,7 +83,7 @@ export default {
   computed: {
     rows: function() {
       const out: any = [];
-      const users = store.getters["users/users"];
+      const users = store.getters["users/students"];
       users.forEach((element: any) => {
         const temp = store.getters["users/journals"](element.id, this.yearWeek);
         Object.keys(temp).forEach((element: string) => {

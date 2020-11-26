@@ -57,7 +57,7 @@ export default {
       "2020-48": [
         {
           id: 1,
-          student: 1,
+          student: 2,
           date: new Date("2020-11-23"),
           comments: [
             { author: 1, body: "Some content", id: 1, timestamp: new Date() }
@@ -65,7 +65,7 @@ export default {
         },
         {
           id: 2,
-          student: 1,
+          student: 2,
           date: new Date("2020-11-24"),
           comments: [
             { author: 1, body: "Some content", id: 1, timestamp: new Date() }
@@ -73,7 +73,7 @@ export default {
         },
         {
           id: 3,
-          student: 1,
+          student: 2,
           date: new Date("2020-11-25"),
           comments: [
             { author: 1, body: "Some content", id: 1, timestamp: new Date() }
@@ -81,7 +81,7 @@ export default {
         },
         {
           id: 4,
-          student: 1,
+          student: 2,
           date: new Date("2020-11-26"),
           comments: [
             { author: 1, body: "Some content", id: 1, timestamp: new Date() }
@@ -89,7 +89,7 @@ export default {
         },
         {
           id: 5,
-          student: 1,
+          student: 2,
           date: new Date("2020-11-27"),
           comments: [
             { author: 1, body: "Some content", id: 1, timestamp: new Date() }
