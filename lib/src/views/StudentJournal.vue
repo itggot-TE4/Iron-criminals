@@ -76,6 +76,12 @@ export default {
       question4: ""
     };
   },
+  mounted: function() {
+    this.question1 = this.journal.body.question1;
+    this.question2 = this.journal.body.question2;
+    this.question3 = this.journal.body.question3;
+    this.question4 = this.journal.body.question4;
+  },
   computed: {
     week: function() {
       return this.$route.params.week;

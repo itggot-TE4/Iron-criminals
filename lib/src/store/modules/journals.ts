@@ -57,40 +57,70 @@ export default {
       "2020-48": [
         {
           id: 1,
-          student: 1,
+          student: 2,
           date: new Date("2020-11-23"),
+          body: {
+            question1: "Some answer",
+            question2: "Some other answer",
+            question3: "A third one",
+            question4: "A fourth one"
+          },
           comments: [
             { author: 1, body: "Some content", id: 1, timestamp: new Date() }
           ]
         },
         {
           id: 2,
-          student: 1,
+          student: 2,
           date: new Date("2020-11-24"),
+          body: {
+            question1: "Some answer",
+            question2: "Some other answer",
+            question3: "A third one",
+            question4: "A fourth one"
+          },
           comments: [
             { author: 1, body: "Some content", id: 1, timestamp: new Date() }
           ]
         },
         {
           id: 3,
-          student: 1,
+          student: 2,
           date: new Date("2020-11-25"),
+          body: {
+            question1: "Some answer",
+            question2: "Some other answer",
+            question3: "A third one",
+            question4: "A fourth one"
+          },
           comments: [
             { author: 1, body: "Some content", id: 1, timestamp: new Date() }
           ]
         },
         {
           id: 4,
-          student: 1,
+          student: 2,
           date: new Date("2020-11-26"),
+          body: {
+            question1: "Some answer",
+            question2: "Some other answer",
+            question3: "A third one",
+            question4: "A fourth one"
+          },
           comments: [
             { author: 1, body: "Some content", id: 1, timestamp: new Date() }
           ]
         },
         {
           id: 5,
-          student: 1,
+          student: 2,
           date: new Date("2020-11-27"),
+          body: {
+            question1: "Some answer",
+            question2: "Some other answer",
+            question3: "A third one",
+            question4: "A fourth one"
+          },
           comments: [
             { author: 1, body: "Some content", id: 1, timestamp: new Date() }
           ]
@@ -149,6 +179,12 @@ export default {
           id: id,
           student: studentId,
           date: date,
+          body: {
+            question1: '',
+            question2: '',
+            question3: '',
+            question4: ''
+          } as Body,
           comments: [
             {
               author: 1,
