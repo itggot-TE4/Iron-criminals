@@ -18,7 +18,7 @@ jobs:
     - name: Run the tests with coverage using lcov
       working-directory: ./lib
       run: |
-        pm install
+        npm install
         npm run test:coverage
     - name: Generate formatted coverage for codeclimate
       working-directory: ./lib
