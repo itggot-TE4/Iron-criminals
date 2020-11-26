@@ -6,50 +6,40 @@
     class="elevation-1"
   >
     <template v-slot:top>
-      <h1>Journals</h1>
+      <h1 class="pa-4">{{ title }}</h1>
     </template>
 
     <template v-slot:[`item.monday.status`]="{ item }">
       <router-link
-        :to="
-          `/logs/weeks/${yearWeek}?day=monday&student=${item.thursday.student}`
-        "
+        :to="`/journal/${yearWeek}/students/${item.thursday.student}?monday`"
       >
         <JournalOverViewBadge :item="item.monday" badgeContent="99" />
       </router-link>
     </template>
     <template v-slot:[`item.tuesday.status`]="{ item }">
       <router-link
-        :to="
-          `/logs/weeks/${yearWeek}?day=tuesday&student=${item.thursday.student}`
-        "
+        :to="`/journal/${yearWeek}/students/${item.thursday.student}?tuesday`"
       >
         <JournalOverViewBadge :item="item.tuesday" badgeContent="99" />
       </router-link>
     </template>
     <template v-slot:[`item.wednesday.status`]="{ item }">
       <router-link
-        :to="
-          `/logs/weeks/${yearWeek}?day=wednesday&student=${item.thursday.student}`
-        "
+        :to="`/journal/${yearWeek}/students/${item.thursday.student}?wednesday`"
       >
         <JournalOverViewBadge :item="item.wednesday" badgeContent="99" />
       </router-link>
     </template>
     <template v-slot:[`item.thursday.status`]="{ item }">
       <router-link
-        :to="
-          `/logs/weeks/${yearWeek}?day=thursday&student=${item.thursday.student}`
-        "
+        :to="`/journal/${yearWeek}/students/${item.thursday.student}?thursday`"
       >
         <JournalOverViewBadge :item="item.thursday" badgeContent="99" />
       </router-link>
     </template>
     <template v-slot:[`item.friday.status`]="{ item }">
       <router-link
-        :to="
-          `/logs/weeks/${yearWeek}?day=friday&student=${item.thursday.student}`
-        "
+        :to="`/journal/${yearWeek}/students/${item.thursday.student}?friday`"
       >
         <JournalOverViewBadge :item="item.friday" badgeContent="2" />
       </router-link>
@@ -66,7 +56,9 @@ export default {
     JournalOverViewBadge
   },
   props: {
-    yearWeek: { default: "2020-48" }
+    yearWeek: { default: "2020-48" },
+    filtered: { default: false },
+    title: {}
   },
   data() {
     return {
@@ -83,7 +75,16 @@ export default {
   computed: {
     rows: function() {
       const out: any = [];
-      const users = store.getters["users/users"];
+      let users: any[];
+      if (this.filtered) {
+        users = store.getters["users/studentsBelongingTo"](
+          store.getters["auth/auth"].id
+        );
+      } else {
+        users = store.getters["users/studentsNotBelongingTo"](
+          store.getters["auth/auth"].id
+        );
+      }
       users.forEach((element: any) => {
         const temp = store.getters["users/journals"](element.id, this.yearWeek);
         Object.keys(temp).forEach((element: string) => {
@@ -98,6 +99,7 @@ export default {
         });
         out.push(temp);
       });
+
       return out;
     }
   },

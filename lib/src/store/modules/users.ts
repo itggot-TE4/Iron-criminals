@@ -12,16 +12,45 @@ export default {
         id: 1,
         name: "Daniel Berg",
         type: "teacher",
-        email: "example@example.example",
+        email: "daniel.berg@ga.ntig.se",
         password: "securepassword101"
       },
       {
         id: 2,
-        name: "Daniel Danielson",
+        name: "Linus Styrén",
+        type: "teacher",
+        email: "linus.styren@ga.ntig.se",
+        password: "securepassword101"
+      },
+      {
+        id: 3,
+        name: "Johan Kivi",
+        type: "teacher",
+        email: "johan.kivi@ga.ntig.se",
+        password: "securepassword101"
+      },
+      {
+        id: 4,
+        name: "Fredrik Kronhamn",
+        type: "teacher",
+        email: "fredrik.kronhamn@ga.ntig.se",
+        password: "securepassword101"
+      },
+      {
+        id: 5,
+        name: "Elev Elevsson",
         type: "student",
-        email: "example@example.example",
+        email: "elev.elevsson@elev.ga.ntig.se",
         password: "securepassword101",
         assignedTeacher: 1
+      },
+      {
+        id: 6,
+        name: "Bert Karlsson",
+        type: "student",
+        email: "bert.karlsson@eelev.ga.ntig.se",
+        password: "securepassword101",
+        assignedTeacher: 4
       }
     ]
   },
@@ -63,10 +92,15 @@ export default {
     students: (state: any) => {
       return state.users.filter((x: User) => x.type == "student");
     },
-    studentsBelogingTo: (state: any) => (teacherID: number) => {
-      return state.users.filter((x: User) => {
-        x.assignedTeacher === teacherID;
-      });
+    studentsBelongingTo: (state: any) => (teacherID: number) => {
+      return state.users.filter(
+        (x: User) => x.type == "student" && x.assignedTeacher === teacherID
+      );
+    },
+    studentsNotBelongingTo: (state: any) => (teacherID: number) => {
+      return state.users.filter(
+        (x: User) => x.type == "student" && x.assignedTeacher !== teacherID
+      );
     }
   }
 };

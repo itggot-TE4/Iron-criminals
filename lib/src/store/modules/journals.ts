@@ -57,7 +57,7 @@ export default {
       "2020-48": [
         {
           id: 1,
-          student: 2,
+          student: 5,
           date: new Date("2020-11-23"),
           body: {
             question1: "Some answer",
@@ -71,13 +71,13 @@ export default {
         },
         {
           id: 2,
-          student: 2,
+          student: 5,
           date: new Date("2020-11-24"),
           body: {
-            question1: "Some answer",
-            question2: "Some other answer",
-            question3: "A third one",
-            question4: "A fourth one"
+            question1: "",
+            question2: "",
+            question3: "",
+            question4: ""
           },
           comments: [
             { author: 1, body: "Some content", id: 1, timestamp: new Date() }
@@ -85,7 +85,7 @@ export default {
         },
         {
           id: 3,
-          student: 2,
+          student: 5,
           date: new Date("2020-11-25"),
           body: {
             question1: "Some answer",
@@ -99,7 +99,7 @@ export default {
         },
         {
           id: 4,
-          student: 2,
+          student: 5,
           date: new Date("2020-11-26"),
           body: {
             question1: "Some answer",
@@ -113,7 +113,7 @@ export default {
         },
         {
           id: 5,
-          student: 2,
+          student: 5,
           date: new Date("2020-11-27"),
           body: {
             question1: "Some Form of an answer",
@@ -134,6 +134,76 @@ export default {
               id: 2,
               timestamp: new Date()
             }
+          ]
+        },
+        {
+          id: 6,
+          student: 6,
+          date: new Date("2020-11-23"),
+          body: {
+            question1: "Some answer",
+            question2: "Some other answer",
+            question3: "A third one",
+            question4: "A fourth one"
+          },
+          comments: [
+            { author: 1, body: "Some content", id: 1, timestamp: new Date() }
+          ]
+        },
+        {
+          id: 7,
+          student: 6,
+          date: new Date("2020-11-24"),
+          body: {
+            question1: "Some answer",
+            question2: "Some other answer",
+            question3: "A third one",
+            question4: "A fourth one"
+          },
+          comments: [
+            { author: 1, body: "Some content", id: 1, timestamp: new Date() }
+          ]
+        },
+        {
+          id: 8,
+          student: 6,
+          date: new Date("2020-11-25"),
+          body: {
+            question1: "Some answer",
+            question2: "Some other answer",
+            question3: "A third one",
+            question4: "A fourth one"
+          },
+          comments: [
+            { author: 1, body: "Some content", id: 1, timestamp: new Date() }
+          ]
+        },
+        {
+          id: 9,
+          student: 6,
+          date: new Date("2020-11-26"),
+          body: {
+            question1: "Some answer",
+            question2: "Some other answer",
+            question3: "A third one",
+            question4: "A fourth one"
+          },
+          comments: [
+            { author: 1, body: "Some content", id: 1, timestamp: new Date() }
+          ]
+        },
+        {
+          id: 10,
+          student: 6,
+          date: new Date("2020-11-27"),
+          body: {
+            question1: "Some answer",
+            question2: "Some other answer",
+            question3: "A third one",
+            question4: "A fourth one"
+          },
+          comments: [
+            { author: 1, body: "Some content", id: 1, timestamp: new Date() }
           ]
         }
       ]
