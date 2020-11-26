@@ -84,13 +84,13 @@ export default {
     rows: function() {
       const out: any = [];
       const users = store.getters["users/users"];
-      users.forEach((element: any) => {
+      users.forEach(element => {
         const temp = store.getters["users/journals"](element.id, this.yearWeek);
         Object.keys(temp).forEach((element: string) => {
           temp[element].status = "read";
           try {
             temp[element].name = users.find(
-              (x: any) => x.id == temp[element].student
+              x => x.id == temp[element].student
             ).name;
           } catch {
             temp[element].name = "Unknown";
