@@ -3,11 +3,27 @@
     :headers="headers"
     :items="rows"
     hide-default-footer
+    hide-default-header
     class="elevation-1"
   >
     <template v-slot:top>
       <h1 class="pa-4">{{ title }}</h1>
     </template>
+
+      <template v-slot:header>
+        <thead>
+          <tr>
+            <td v-for="header in headers" :key="header.text">
+            <th>
+              <router-link :to="`/teacher/${yearWeek}`" v-if="header.text != 'User'">
+                <span>{{ header.text }}</span>
+              </router-link>
+              <span v-else>{{ header.text }}</span>
+            </th>
+            </td>
+          </tr>
+        </thead>
+      </template>
 
     <template v-slot:[`item.monday.status`]="{ item }">
       <router-link
@@ -106,3 +122,10 @@ export default {
   methods: {}
 };
 </script>
+
+<style scoped>
+a {
+  text-decoration: none;
+  color: black !important;
+}
+</style>
