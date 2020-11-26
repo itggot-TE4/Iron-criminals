@@ -100,6 +100,6 @@ export default {
         return { name: "Unknown", id: this.journal.student };
       }
     }
-  },
+  }
 };
 </script>

@@ -65,7 +65,7 @@ export default Vue.extend({
       const teacher = store.getters["users/teachers"].find(
         (x: any) => x.name == this.teacher
       );
-      if(this.type === "student") {
+      if (this.type === "student") {
         store.dispatch("users/newUser", {
           name: this.name,
           type: this.type,

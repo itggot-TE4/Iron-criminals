@@ -65,9 +65,9 @@ export default {
   methods: {
     getNameFromID: function(id) {
       const result = store.getters["users/teachers"].find(obj => {
-        return obj.id === id
-      })
-      return result.name
+        return obj.id === id;
+      });
+      return result.name;
     }
   }
 };
