@@ -222,6 +222,12 @@ export default {
       state.journals[
         `${new Date().getFullYear()}-${getWeekNumber(args.date)}`
       ].push(args);
+    },
+    updateJournal(state: any, args: UpdateJournal) {
+      console.log(args);
+      state.journals[args.week].find((x: Journal) => x.id === args.id).body[
+        `question${args.questionID.toString()}`
+      ] = args.data;
     }
   },
   actions: {
@@ -237,6 +243,9 @@ export default {
         timestamp: new Date()
       } as Comment;
       state.dispatch("addComment", comment);
+    },
+    updateJournal(state: any, args: UpdateJournal) {
+      state.commit("updateJournal", args);
     },
     createDefaultJournals(store: any, studentId: number) {
       const monday = getPreviousMonday();

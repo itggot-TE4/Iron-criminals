@@ -6,7 +6,8 @@
         flat
         solo
         placeholder="Answer here"
-        v-model="answer"
+        v-model="actualAnswer"
+        @blur="$emit('input', actualAnswer, journalID, questionID)"
       ></v-text-field>
     </v-container>
   </div>
@@ -15,6 +16,16 @@
 <script lang="ts">
 export default {
   name: "JournalBox",
-  props: ["question", "answer"]
+  props: ["question", "answer", "journalID", "questionID"],
+  data() {
+    return {
+      actualAnswer: this.answer
+    };
+  },
+  watch: {
+    answer: function() {
+      this.actualAnswer = this.answer;
+    }
+  }
 };
 </script>
