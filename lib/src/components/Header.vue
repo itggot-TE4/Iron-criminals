@@ -66,12 +66,9 @@ export default Vue.extend({
 });
 </script>
 
-
-
 <style lang="scss" scoped>
 a {
   text-decoration: none;
   color: black !important;
 }
-
 </style>

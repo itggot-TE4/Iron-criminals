@@ -180,10 +180,10 @@ export default {
           student: studentId,
           date: date,
           body: {
-            question1: '',
-            question2: '',
-            question3: '',
-            question4: ''
+            question1: "",
+            question2: "",
+            question3: "",
+            question4: ""
           } as Body,
           comments: [
             {
