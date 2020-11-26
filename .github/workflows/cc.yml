@@ -2,7 +2,6 @@
 name: CI
 
 on:
-  push:
   schedule:
   - cron: "0 0 * * *"
 
@@ -13,8 +12,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    # - name: Checkout master
-    #   run: git checkout master
+    - name: Checkout master
+      run: git checkout master
     - name: Run the tests with coverage using lcov
       working-directory: ./lib
       run: |

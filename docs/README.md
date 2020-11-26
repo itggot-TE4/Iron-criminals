@@ -7,6 +7,7 @@
 ![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability-percentage/itggot-TE4/Iron-criminals?style=for-the-badge)
 ![Code Climate technical debt](https://img.shields.io/codeclimate/tech-debt/itggot-TE4/Iron-criminals?style=for-the-badge)
 ![Code Climate issues](https://img.shields.io/codeclimate/issues/itggot-TE4/Iron-criminals?style=for-the-badge)
+![Code Climate coverage](https://img.shields.io/codeclimate/coverage/itggot-TE4/Iron-criminals?style=for-the-badge)
 
 This is a small Vue based project aimed at simplifying the task of reviewing students daily journals.
 
