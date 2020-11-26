@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <JournalOverview  />
+    <JournalOverview />
   </v-container>
 </template>
 

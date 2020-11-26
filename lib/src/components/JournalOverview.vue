@@ -11,45 +11,35 @@
 
     <template v-slot:[`item.monday.status`]="{ item }">
       <router-link
-        :to="
-          `/journal/${yearWeek}/students/${item.thursday.student}?monday`
-        "
+        :to="`/journal/${yearWeek}/students/${item.thursday.student}?monday`"
       >
         <JournalOverViewBadge :item="item.monday" badgeContent="99" />
       </router-link>
     </template>
     <template v-slot:[`item.tuesday.status`]="{ item }">
       <router-link
-        :to="
-          `/journal/${yearWeek}/students/${item.thursday.student}?tuesday`
-        "
+        :to="`/journal/${yearWeek}/students/${item.thursday.student}?tuesday`"
       >
         <JournalOverViewBadge :item="item.tuesday" badgeContent="99" />
       </router-link>
     </template>
     <template v-slot:[`item.wednesday.status`]="{ item }">
       <router-link
-        :to="
-          `/journal/${yearWeek}/students/${item.thursday.student}?wednesday`
-        "
+        :to="`/journal/${yearWeek}/students/${item.thursday.student}?wednesday`"
       >
         <JournalOverViewBadge :item="item.wednesday" badgeContent="99" />
       </router-link>
     </template>
     <template v-slot:[`item.thursday.status`]="{ item }">
       <router-link
-        :to="
-          `/journal/${yearWeek}/students/${item.thursday.student}?thursday`
-        "
+        :to="`/journal/${yearWeek}/students/${item.thursday.student}?thursday`"
       >
         <JournalOverViewBadge :item="item.thursday" badgeContent="99" />
       </router-link>
     </template>
     <template v-slot:[`item.friday.status`]="{ item }">
       <router-link
-        :to="
-          `/journal/${yearWeek}/students/${item.thursday.student}?friday`
-        "
+        :to="`/journal/${yearWeek}/students/${item.thursday.student}?friday`"
       >
         <JournalOverViewBadge :item="item.friday" badgeContent="2" />
       </router-link>
