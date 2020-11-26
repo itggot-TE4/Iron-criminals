@@ -15,7 +15,7 @@
           <tr>
             <td v-for="header in headers" :key="header.text">
             <th>
-              <router-link :to="`/teacher/${yearWeek}?day=${header.value.split('.')[0]}`" v-if="header.text != 'User'">
+              <router-link :to="`/teacher/${yearWeek}?day=${header.value.split('.')[0]}&filtered=${filtered}`" v-if="header.text != 'User'">
                 <span>{{ header.text }}</span>
               </router-link>
               <span v-else>{{ header.text }}</span>
