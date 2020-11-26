@@ -21,16 +21,37 @@
     </v-card>
 
     <v-card class="mx-auto mt-10 flex-column" max-width="1500">
-      <JournalBox question="Vad har du gjort idag?" :answer="question1" />
+      <JournalBox
+        question="Vad har du gjort idag?"
+        :answer="question1"
+        @input="onInput"
+        :journalID="journal.id"
+        :questionID="1"
+      />
       <v-divider />
-      <JournalBox question="Vad har du lärt dig?" :answer="question2" />
+      <JournalBox
+        question="Vad har du lärt dig?"
+        :answer="question2"
+        @input="onInput"
+        :journalID="journal.id"
+        :questionID="2"
+      />
       <v-divider />
       <JournalBox
         question="Vad förstod du inte / Vilka frågor har du inte fått svar på?"
         :answer="question3"
+        :journalID="journal.id"
+        @input="onInput"
+        :questionID="3"
       />
       <v-divider />
-      <JournalBox question="Vad vill du lära dig mer om?" :answer="question4" />
+      <JournalBox
+        question="Vad vill du lära dig mer om?"
+        :answer="question4"
+        @input="onInput"
+        :journalID="journal.id"
+        :questionID="4"
+      />
       <v-divider></v-divider>
       <p class="ml-2">Comments</p>
       <Timeline :comments="journal.comments" />
@@ -139,6 +160,16 @@ export default {
       } catch {
         return { name: "Unknown", id: this.journal.student };
       }
+    }
+  },
+  methods: {
+    onInput: function(data: string, journalID: number, questionID: number) {
+      store.dispatch("journals/updateJournal", {
+        data: data,
+        id: journalID,
+        questionID: questionID,
+        week: this.$route.params.week
+      });
     }
   }
 };

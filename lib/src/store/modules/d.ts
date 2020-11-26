@@ -44,3 +44,10 @@ interface CreateComment {
   body: string;
   author: number;
 }
+
+interface UpdateJournal {
+  id: number;
+  data: string;
+  questionID: number;
+  week: string;
+}
