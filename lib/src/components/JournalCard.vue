@@ -124,7 +124,7 @@ export default {
     },
     allJournalsForDay: function() {
       const arr: any[] = [];
-      const students = store.getters["users/students"];
+      const students = this.students;
       for (const student of students) {
         console.log(this.journals[this.day]);
         arr.push(this.journals[this.day]);
