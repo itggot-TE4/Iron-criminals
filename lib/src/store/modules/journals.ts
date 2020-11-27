@@ -211,7 +211,10 @@ export default {
   },
   mutations: {
     addComment(_state: any, args: AddComment) {
-      store.getters['journals/journal'](args.logID, args.yearWeek).comments.push(args.comment);
+      store.getters["journals/journal"](
+        args.logID,
+        args.yearWeek
+      ).comments.push(args.comment);
     },
     removeComment(_state: any, args: RemoveComment) {
       store.getters.journal(args.logID).comments = store.getters
@@ -234,14 +237,21 @@ export default {
       store.dispatch("removeComment", args);
     },
     createComment(state: any, args: CreateComment) {
-      const comments = store.getters['journals/journal'](args.logID, args.yearWeek).comments as Comment[];
+      const comments = store.getters["journals/journal"](
+        args.logID,
+        args.yearWeek
+      ).comments as Comment[];
       const comment = {
         id: comments[comments.length - 1].id + 1,
         body: args.body,
         author: args.author,
         timestamp: new Date()
       } as Comment;
-      state.commit("addComment", {comment: comment, yearWeek: args.yearWeek, logID: args.logID });
+      state.commit("addComment", {
+        comment: comment,
+        yearWeek: args.yearWeek,
+        logID: args.logID
+      });
     },
     updateJournal(state: any, args: UpdateJournal) {
       state.commit("updateJournal", args);
@@ -287,7 +297,9 @@ export default {
       });
     },
     journal: (state: any) => (logID: number, yearWeek: string) => {
-      return store.getters['journals/journals'](yearWeek).find((x: Journal) => x.id === logID);
+      return store.getters["journals/journals"](yearWeek).find(
+        (x: Journal) => x.id === logID
+      );
     }
   }
 };
