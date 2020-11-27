@@ -101,7 +101,6 @@ export default {
       try {
         return this.journals[this.$route.query.day];
       } catch {
-        console.log(this.journals.monday);
         return this.journals.monday;
       }
     },
