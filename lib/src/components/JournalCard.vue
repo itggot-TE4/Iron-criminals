@@ -1,25 +1,10 @@
 <template>
-  <v-container class="mt-2">
-    <v-card class="mx-auto" max-width="350" max-height="120">
-      <v-card-text class="d-flex align-center flex-column pa-0">
-        <h3 class="ma-0 mt-1 font-weight-black">{{ day }} {{ week }}</h3>
-
-        <v-radio-group v-model="oneAtATime" row class="pb-0 mb-0">
-          <v-radio label="One at a time" :value="true"> </v-radio>
-          <v-radio label="All at once" :value="false"> </v-radio>
-        </v-radio-group>
-      </v-card-text>
-      <v-container class="d-flex justify-center pa-0" v-if="oneAtATime">
-        <v-icon size="35" @click="changeUser('down')">mdi-chevron-left</v-icon>
-        <p class="ma-0 mt-1">{{ currentStudent.name }}</p>
-        <v-icon size="35" @click="changeUser('up')">mdi-chevron-right</v-icon>
-      </v-container>
-    </v-card>
-
+  <div>
     <v-card
       class="mx-auto mt-10 flex-column"
       max-width="1500"
-      v-if="oneAtATime"
+      v-for="journal in allJournalsForDay()"
+      :key="journal"
     >
       <JournalBox
         question="Vad har du gjort idag?"
@@ -52,31 +37,19 @@
         :journalID="journal.id"
         :questionID="4"
       />
-      <v-divider></v-divider>
-      <p class="ml-2">Comments</p>
-      <Timeline :comments="journal.comments" />
-      <CommentInput :journal="journal" :week="week" />
     </v-card>
-    <v-card class="mx-auto mt-10 flex-column" max-width="1500" v-else>
-      <!-- TODO: A view of all entries -->
-      <JournalCard />
-    </v-card>
-  </v-container>
+  </div>
 </template>
 
 <script lang="ts">
-import Timeline from "@/components/Timeline.vue";
-import CommentInput from "@/components/CommentInput.vue";
 import JournalBox from "../components/JournalBox.vue";
 import store from "../store/index";
-import JournalCard from "@/components/JournalCard.vue";
 
 export default {
-  name: "Journal",
-  components: { Timeline, CommentInput, JournalBox, JournalCard },
+  name: "JournalCard",
+  components: { JournalBox },
   data() {
     return {
-      oneAtATime: true,
       question1: "",
       question2: "",
       question3: "",
@@ -118,15 +91,6 @@ export default {
         );
       }
     },
-    nextStudent: function() {
-      return this.students[this.currentIndex + 1];
-    },
-    currentStudent: function() {
-      return this.students[this.currentIndex];
-    },
-    prevStudent: function() {
-      return this.students[this.currentIndex - 1];
-    },
     journals: function() {
       return store.getters["users/journals"](
         this.students[this.currentIndex].id,
@@ -157,20 +121,13 @@ export default {
         week: this.week
       });
     },
-    changeUser: function(direction) {
-      switch (direction) {
-        case "up":
-          this.currentIndex += 1;
-          break;
-        default:
-          this.currentIndex -= 1;
-          break;
+    allJournalsForDay: function() {
+      const arr: any[] = [];
+      const students = this.students;
+      for (const student of students) {
+        arr.push(this.journals[this.day]);
       }
-      if (this.currentIndex >= this.students.length) {
-        this.currentIndex = this.students.length - 1;
-      } else if (this.currentIndex < 0) {
-        this.currentIndex = 0;
-      }
+      return arr;
     }
   }
 };
