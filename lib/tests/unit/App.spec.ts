@@ -10,8 +10,8 @@ describe("Home.vue", () => {
     Vue.use(vuetify);
     Vue.use(VueRouter);
 
-    const wrapper = shallowMount(App)
+    const wrapper = shallowMount(App);
 
-    expect(wrapper.findComponent(Header).exists()).toBe(true)
+    expect(wrapper.findComponent(Header).exists()).toBe(true);
   });
 });
