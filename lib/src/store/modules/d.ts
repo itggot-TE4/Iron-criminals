@@ -30,6 +30,7 @@ interface Comment {
 }
 
 interface AddComment {
+  yearWeek: string;
   logID: number;
   comment: string;
 }
@@ -41,6 +42,7 @@ interface RemoveComment {
 
 interface CreateComment {
   logID: number;
+  yearWeek: string;
   body: string;
   author: number;
 }
