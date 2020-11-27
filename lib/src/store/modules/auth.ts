@@ -29,6 +29,20 @@ export default {
   getters: {
     auth(state: any) {
       return state.auth;
+    },
+    isAdmin(state: any) {
+      try {
+        return state.auth.type === "teacher";
+      } catch {
+        return false;
+      }
+    },
+    isStudent(state: any) {
+      try {
+        return state.auth.type === "student";
+      } catch {
+        return false;
+      }
     }
   }
 };
