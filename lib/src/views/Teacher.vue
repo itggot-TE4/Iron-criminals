@@ -25,6 +25,7 @@
         question="Vad har du gjort idag?"
         :answer="question1"
         @input="onInput"
+        disabled
         :journalID="journal.id"
         :questionID="1"
       />
@@ -33,6 +34,7 @@
         question="Vad har du lärt dig?"
         :answer="question2"
         @input="onInput"
+        disabled
         :journalID="journal.id"
         :questionID="2"
       />
@@ -42,6 +44,7 @@
         :answer="question3"
         :journalID="journal.id"
         @input="onInput"
+        disabled
         :questionID="3"
       />
       <v-divider />
@@ -49,6 +52,7 @@
         question="Vad vill du lära dig mer om?"
         :answer="question4"
         @input="onInput"
+        disabled
         :journalID="journal.id"
         :questionID="4"
       />
