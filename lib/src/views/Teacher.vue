@@ -55,7 +55,7 @@
       <v-divider></v-divider>
       <p class="ml-2">Comments</p>
       <Timeline :comments="journal.comments" />
-      <CommentInput :logID="journal.id" />
+      <CommentInput :journal="journal" :week="week" />
     </v-card>
     <v-card class="mx-auto mt-10 flex-column" max-width="1500" v-else>
       <!-- TODO: A view of all entries -->
