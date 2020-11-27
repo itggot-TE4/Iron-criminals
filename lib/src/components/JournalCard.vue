@@ -4,36 +4,40 @@
       class="mx-auto mt-10 flex-column"
       max-width="1500"
       v-for="journal in allJournalsForDay()"
-      :key="journal"
+      :key="journal.id"
     >
       <JournalBox
         question="Vad har du gjort idag?"
-        :answer="question1"
+        :answer="journal.body.question1"
         @input="onInput"
+        disabled
         :journalID="journal.id"
         :questionID="1"
       />
       <v-divider />
       <JournalBox
         question="Vad har du lärt dig?"
-        :answer="question2"
+        :answer="journal.body.question2"
         @input="onInput"
+        disabled
         :journalID="journal.id"
         :questionID="2"
       />
       <v-divider />
       <JournalBox
         question="Vad förstod du inte / Vilka frågor har du inte fått svar på?"
-        :answer="question3"
-        :journalID="journal.id"
+        :answer="journal.body.question3"
         @input="onInput"
+        disabled
+        :journalID="journal.id"
         :questionID="3"
       />
       <v-divider />
       <JournalBox
         question="Vad vill du lära dig mer om?"
-        :answer="question4"
+        :answer="journal.body.question4"
         @input="onInput"
+        disabled
         :journalID="journal.id"
         :questionID="4"
       />
@@ -121,12 +125,15 @@ export default {
         week: this.week
       });
     },
+    journalsByUserAndDay: function(userID: number) {
+      return store.getters["users/journals"](userID, this.week);
+    },
     allJournalsForDay: function() {
       const arr: any[] = [];
       const students = this.students;
-      for (const student of students) {
-        arr.push(this.journals[this.day]);
-      }
+      students.forEach(student => {
+        arr.push(this.journalsByUserAndDay(student.id)[this.day]);
+      });
       return arr;
     }
   }
