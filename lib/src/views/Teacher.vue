@@ -69,7 +69,6 @@ import Timeline from "@/components/Timeline.vue";
 import CommentInput from "@/components/CommentInput.vue";
 import JournalBox from "../components/JournalBox.vue";
 import store from "../store/index";
-
 import JournalCard from "@/components/JournalCard.vue";
 
 export default {
