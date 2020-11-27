@@ -7,7 +7,7 @@
     <v-spacer></v-spacer>
 
     <v-btn elevation="0">
-      <router-link to="admin" v-if="isAdmin()">
+      <router-link :to="{ name: 'Admin' }" v-if="isAdmin()">
         <v-icon left>
           mdi-cog
         </v-icon>
@@ -25,7 +25,7 @@
     </v-btn>
 
     <v-btn elevation="0">
-      <router-link to="Login" v-if="!isSignedIn()">
+      <router-link :to="{ name: 'Login' }" v-if="!isSignedIn()">
         <v-icon left>
           mdi-lock-open
         </v-icon>
