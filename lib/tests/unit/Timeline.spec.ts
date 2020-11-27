@@ -6,7 +6,7 @@ import vuetify from "vuetify";
 
 
 it("Check if sign in is in the login page", () => {
-    Vue.use(vuetify);
+  Vue.use(vuetify);
   const wrapper = shallowMount(Login)
   const msg = "Sign in"
 
