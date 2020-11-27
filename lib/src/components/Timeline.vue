@@ -20,12 +20,17 @@
 import store from "../store/index";
 export default {
   props: ["comments"],
+  computed: {},
   methods: {
     name: function(comment) {
-      try {
-        return store.getters["users/user"](comment.author).name;
-      } catch {
-        return "Unknown";
+      if (typeof comment.author == "string") {
+        return comment.author;
+      } else {
+        try {
+          return store.getters["users/user"](comment.author).name;
+        } catch {
+          return "Unknown Author";
+        }
       }
     }
   }
