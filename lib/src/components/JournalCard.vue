@@ -50,7 +50,6 @@ export default {
   components: { JournalBox },
   data() {
     return {
-      oneAtATime: true,
       question1: "",
       question2: "",
       question3: "",
