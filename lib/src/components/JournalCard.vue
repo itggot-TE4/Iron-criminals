@@ -126,7 +126,6 @@ export default {
       const arr: any[] = [];
       const students = this.students;
       for (const student of students) {
-        console.log(this.journals[this.day]);
         arr.push(this.journals[this.day]);
       }
       return arr;
