@@ -1,37 +1,78 @@
-[![Actions Status](https://github.com/itggot-TE4/TE4/workflows/tests/badge.svg)](https://github.com/itggot-TE4/Yala/actions)
-# TE4
-Template project for projects at TE4
+# Iron-Criminals Log-O-Matic
 
-Replace this with a description for the project. Remember to update the above template badge.
+![GitHub](https://img.shields.io/github/license/itggot-TE4/Iron-criminals?style=for-the-badge)
+![Test Status](https://img.shields.io/github/workflow/status/itggot-TE4/Iron-criminals/tests?label=tests&style=for-the-badge)
+![LGTM Alerts](https://img.shields.io/lgtm/alerts/github/itggot-TE4/Iron-criminals?style=for-the-badge)
+![LGTM Grade](https://img.shields.io/lgtm/grade/javascript/github/itggot-TE4/Iron-criminals?style=for-the-badge)
+![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability-percentage/itggot-TE4/Iron-criminals?style=for-the-badge)
+![Code Climate technical debt](https://img.shields.io/codeclimate/tech-debt/itggot-TE4/Iron-criminals?style=for-the-badge)
+![Code Climate issues](https://img.shields.io/codeclimate/issues/itggot-TE4/Iron-criminals?style=for-the-badge)
+![Code Climate coverage](https://img.shields.io/codeclimate/coverage/itggot-TE4/Iron-criminals?style=for-the-badge)
 
-## Project management setup
-- Use projects tab for adding kanban boards for issue tracking and bug triage board.
-- Use issues and labels for assigning points to tasks and categorizing tasks.
+This is a small Vue based project aimed at simplifying the task of reviewing students daily journals.
 
-## Code review
-Code review is the process that happens after a new pull request is created and before the changes are merged to develop. It's a powerful tool for knowledge transfer. Use the following guidelines as a reference: https://github.com/thoughtbot/guides/tree/master/code-review
+## Getting started
 
-## Documentation
-Self-documenting code is something to aim for. Types are the simplest and best documentation, improve legibility due to their well-defined meaning, and are checked at compile time<sup>1</sup>. For more high-level documentation about application code, one can choose to use tools such as [JSDoc](https://jsdoc.app/) or [docsify.js](https://docsify.js.org). Use the gh-pages to provide this documentation for other developers and users: https://itggot-te4.github.io/TE4/
+After cloning the repo you will need to navigate into the `lib` folder from where you will need to run the following command.
 
-## Testing
-Every developer has heard of how useful tests are but to actually think in a TDD manner is something entirely different. Consider the different types of tests: https://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html
+```text
+npm install
+```
 
-## Continious integration
-Every commit that is pushed to the remote should be free of syntax errors and should still pass the "build" phase + basic tests. To reinforce testing into an application a CI pipeline is put in place to check every commit and even update reports for code coverage or automatic merging of code. [Github actions](https://github.com/features/actions) is one of the simplest solutions to this. Update the .github/workflows yaml files for the project specific configuration. 
+To get it running you can then use one of the following commands, depending on you intentions.
 
-## Code quality
-There are several tools that can be integrated into the CI pipeline. One of those tools can be used to monitor code quality. [Code climate](https://codeclimate.com/quality/) is a free application which has support for finding duplicated code and can be setup to reinfore a certain codestyle.
+### Hot-reloads for development
 
-Another tool that can be used in the CI pipeline is [Semmle QL](https://help.semmle.com/QL/learn-ql/) for automatic security checks on new pull requests.
+```text
+npm run serve
+```
 
-## Refactoring
-Refactoring is the process of improving the design of existing code without altering its external behavior. It's a critical step in the process, but often overlooked <sup>2</sup>. This should be part of a strong code review culture on any serious project.
+### Compiles and minifies for production
 
-## Git flow
+```text
+npm run build
+```
+
+### Runs all unit tests
+
+```text
+npm run test:unit
+```
+
+### Lints and fixes potential issues
+
+```text
+npm run lint
+```
+
+## Developing
+
+### Code review
+
+This project utilizes Code Reviews to hopefully prevent some bugs from being merged into the `dev` and `master` branch.
+Before a pull request is merged the code needs to be review by atleast one member of the Iron-Criminals team. But what is a code review and how is it performed?
+
+Code review is the process that happens after a new pull request is created and before the changes are merged to `dev`. It's a powerful tool for knowledge transfer. Use the following guidelines as a reference: https://github.com/thoughtbot/guides/tree/master/code-review
+
+### Documentation
+
+Self-documenting code is something to aim for. Types are the simplest and best documentation, improve legibility due to their well-defined meaning, and are checked at compile time<sup>1</sup>. We prefer complex code to be documentet inline to help other undrestand it. For documentation not suited for inlining the documentation should be wriiten in a markdown file in the `docs` folder and linked to in the `_navbar.md` file. This makes it available on our GitHub pages: <https://itggot-te4.github.io/Iron-criminals/>
+
+### Testing
+
+Every developer has heard of how useful tests are but to actually think in a TDD manner is something entirely different. Consider the different types of tests explained here when thinking about what test you should write: <https://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html>
+
+### Continious integration
+
+Every commit that is pushed to the remote should be free of syntax errors and should still pass the "build" phase + basic tests. To reinforce testing into an application a CI pipeline ishas been put in place to check every commit and if it breaks something.
+
+### Refactoring
+
+Refactoring is the process of improving the design of existing code without altering its external behavior. It's a critical step in the process, but often overlooked <sup>2</sup>. That´s why we strive to provide qualitative code reviews, to make sure the technical-depth is keept managable.
+
+### Git flow
+
 - Don't push to master, use a develop branch
-- https://nvie.com/posts/a-successful-git-branching-model/
-- https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 
 <sup>1</sup>: [ioscpp guidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md).  
-<sup>2</sup>: https://thoughtbot.com/playbook/developing/refactoring
+<sup>2</sup>: <https://thoughtbot.com/playbook/developing/refactoring>
