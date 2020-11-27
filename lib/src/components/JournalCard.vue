@@ -113,7 +113,6 @@ export default {
         return { name: "Unknown", id: this.journal.student };
       }
     }
-    // this.journal.monday == en journal för dagen monday
   },
   methods: {
     onInput: function(data: string, journalID: number, questionID: number) {
