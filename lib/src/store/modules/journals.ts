@@ -211,7 +211,10 @@ export default {
   },
   mutations: {
     addComment(_state: any, args: AddComment) {
-      store.getters.journal(args.logID).comments.push(args.comment);
+      store.getters["journals/journal"](
+        args.logID,
+        args.yearWeek
+      ).comments.push(args.comment);
     },
     removeComment(_state: any, args: RemoveComment) {
       store.getters.journal(args.logID).comments = store.getters
@@ -224,7 +227,6 @@ export default {
       ].push(args);
     },
     updateJournal(state: any, args: UpdateJournal) {
-      console.log(args);
       state.journals[args.week].find((x: Journal) => x.id === args.id).body[
         `question${args.questionID.toString()}`
       ] = args.data;
@@ -235,14 +237,21 @@ export default {
       store.dispatch("removeComment", args);
     },
     createComment(state: any, args: CreateComment) {
-      const comments = store.getters.journal(args.logID).comments as Comment[];
+      const comments = store.getters["journals/journal"](
+        args.logID,
+        args.yearWeek
+      ).comments as Comment[];
       const comment = {
         id: comments[comments.length - 1].id + 1,
         body: args.body,
         author: args.author,
         timestamp: new Date()
       } as Comment;
-      state.dispatch("addComment", comment);
+      state.commit("addComment", {
+        comment: comment,
+        yearWeek: args.yearWeek,
+        logID: args.logID
+      });
     },
     updateJournal(state: any, args: UpdateJournal) {
       state.commit("updateJournal", args);
@@ -275,14 +284,7 @@ export default {
             question3: "",
             question4: ""
           } as Body,
-          comments: [
-            {
-              author: 1,
-              body: "Some content",
-              id: 1,
-              timestamp: new Date()
-            } as Comment
-          ]
+          comments: []
         };
         store.commit("addJournal", entry);
       }
@@ -294,8 +296,10 @@ export default {
         return dateify(x);
       });
     },
-    journal: (state: any) => (logID: number) => {
-      return state.journals.find((x: Journal) => x.id === logID);
+    journal: (state: any) => (logID: number, yearWeek: string) => {
+      return store.getters["journals/journals"](yearWeek).find(
+        (x: Journal) => x.id === logID
+      );
     }
   }
 };
