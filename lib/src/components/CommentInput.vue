@@ -10,11 +10,7 @@
       </v-textarea>
     </v-col>
     <div class="d-flex justify-end">
-      <v-btn
-        class="ma-2"
-        color="success"
-        @click="onClick"
-      >
+      <v-btn class="ma-2" color="success" @click="onClick">
         Send Comment
         <template v-slot:loader>
           <span>Loading...</span>
